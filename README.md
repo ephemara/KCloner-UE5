@@ -14,7 +14,8 @@ K-Cloner brings the flexibility of Cinema 4D-style MoGraph workflows directly in
 
 Whether you need a forest of 10,000 wind-reactive trees, dynamic crowds, procedural weapon sway, impact combat reactions, or generative mathematical structures, K-Cloner handles distribution layouts, modifier stacks, math-driven scripting, and high-performance rendering out of the box.
 
-*Note: This repository has a clean commit history because K-Cloner was previously developed inside a private monorepo. It has now been separated and made public on GitHub.*
+> [!NOTE]
+> *This repository has a clean commit history because K-Cloner was previously developed inside a private monorepo. It has now been separated and made public on GitHub.*
 
 ---
 
