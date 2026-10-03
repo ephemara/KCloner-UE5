@@ -1,0 +1,17 @@
+{
+  "AssetName": "Science_ThomasAttractor",
+  "DisplayName": "Thomas Cyclic Attractor",
+  "Category": "Science/Chaos",
+  "Description": "An unrolled Thomas attractor integration with cyclic sine flow, producing a soft three-dimensional strange attractor cloud.",
+  "KScript": "var ax := x*0.01 + sin(t*v2 + u*v3)*0.1; var ay := y*0.01 + cos(t*v2 + u*v3)*0.1; var az := z*0.01 + sin(t*v2*0.73 + u*v3)*0.1; var h := v1; var dx := sin(ay)-v0*ax; var dy := sin(az)-v0*ay; var dz := sin(ax)-v0*az; ax := ax+dx*h; ay := ay+dy*h; az := az+dz*h; dx := sin(ay)-v0*ax; dy := sin(az)-v0*ay; dz := sin(ax)-v0*az; ax := ax+dx*h; ay := ay+dy*h; az := az+dz*h; dx := sin(ay)-v0*ax; dy := sin(az)-v0*ay; dz := sin(ax)-v0*az; ax := ax+dx*h; ay := ay+dy*h; az := az+dz*h; dx := sin(ay)-v0*ax; dy := sin(az)-v0*ay; dz := sin(ax)-v0*az; ax := ax+dx*h; ay := ay+dy*h; az := az+dz*h; x += ax*v4; y += ay*v4; z += az*v4; rz += ax*v5;",
+  "Step": 0.04,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "Damping", "DefaultValue": 0.19, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Thomas attractor damping parameter" },
+    { "Name": "IntegrationStep", "DefaultValue": 0.04, "MinValue": 0.001, "MaxValue": 0.2, "Tooltip": "Unrolled integration step" },
+    { "Name": "Speed", "DefaultValue": 1.1, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Attractor time speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 1.3, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Initial phase spread" },
+    { "Name": "Amplitude", "DefaultValue": 42.0, "MinValue": 0.0, "MaxValue": 250.0, "Tooltip": "World-space attractor amplitude" },
+    { "Name": "RollResponse", "DefaultValue": 0.7, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Rotation response" }
+  ]
+}

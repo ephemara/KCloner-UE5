@@ -1,0 +1,17 @@
+{
+  "AssetName": "Science_LorenzAttractor",
+  "DisplayName": "Lorenz Attractor",
+  "Category": "Science/Chaos",
+  "Description": "A compact Euler-stepped Lorenz-system field for butterfly-effect motion and chaotic attractor silhouettes.",
+  "KScript": "var lx := x*0.01 + sin(t*v3 + u*v4)*0.1; var ly := y*0.01 + cos(t*v3 + u*v4)*0.1; var lz := z*0.01 + 1.0; var h := v5; var dx := v0*(ly-lx); var dy := lx*(v1-lz)-ly; var dz := lx*ly-v2*lz; lx := lx + dx*h; ly := ly + dy*h; lz := lz + dz*h; dx := v0*(ly-lx); dy := lx*(v1-lz)-ly; dz := lx*ly-v2*lz; lx := lx + dx*h; ly := ly + dy*h; lz := lz + dz*h; dx := v0*(ly-lx); dy := lx*(v1-lz)-ly; dz := lx*ly-v2*lz; lx := lx + dx*h; ly := ly + dy*h; lz := lz + dz*h; x += lx*v6*0.02; y += ly*v6*0.02; z += (lz-1.0)*v6*0.02; ry += lx*v7;",
+  "Variables": [
+    { "Name": "Sigma", "DefaultValue": 10.0, "MinValue": 0.0, "MaxValue": 30.0, "Tooltip": "Lorenz sigma parameter" },
+    { "Name": "Rho", "DefaultValue": 28.0, "MinValue": 0.0, "MaxValue": 60.0, "Tooltip": "Lorenz rho parameter" },
+    { "Name": "Beta", "DefaultValue": 2.6667, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Lorenz beta parameter" },
+    { "Name": "Speed", "DefaultValue": 0.7, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Attractor time speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 1.2, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Phase offset across instances" },
+    { "Name": "IntegrationStep", "DefaultValue": 0.015, "MinValue": 0.001, "MaxValue": 0.1, "Tooltip": "Euler integration step" },
+    { "Name": "Amplitude", "DefaultValue": 35.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "World-space attractor amplitude" },
+    { "Name": "Twist", "DefaultValue": 0.5, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Rotation response to the attractor" }
+  ]
+}

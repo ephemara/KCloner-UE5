@@ -1,0 +1,18 @@
+{
+  "AssetName": "Science_NavierStokesVortex",
+  "DisplayName": "Navier-Stokes Vortex",
+  "Category": "Science/Fluid Dynamics",
+  "Description": "An incompressible swirling-flow visualizer inspired by cylindrical Navier-Stokes velocity fields, viscosity falloff, and vortex cores.",
+  "KScript": "var radius := sqrt(x*x + y*y) + 0.001; var core := max(v1, 1.0); var swirl := v0 * exp(-(radius*radius)/(core*core)); var angle := t*swirl + u*v2; var c := cos(angle); var s := sin(angle); var ox := x; var oy := y; var radial := (1.0 - exp(-radius/core)) * v3 * sin(t*v4 + u*v5); x := ox*c - oy*s + (ox/radius)*radial; y := ox*s + oy*c + (oy/radius)*radial; z += sin(t*v6 + radius*v7) * v8;",
+  "Variables": [
+    { "Name": "Vorticity", "DefaultValue": 2.5, "MinValue": 0.0, "MaxValue": 15.0, "Tooltip": "Angular velocity at the vortex center" },
+    { "Name": "CoreRadius", "DefaultValue": 120.0, "MinValue": 1.0, "MaxValue": 500.0, "Tooltip": "Vortex core radius in Unreal units" },
+    { "Name": "PhaseSpread", "DefaultValue": 6.28, "MinValue": 0.0, "MaxValue": 25.0, "Tooltip": "Phase offset across instances" },
+    { "Name": "RadialFlow", "DefaultValue": 12.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Outward and inward fluid motion" },
+    { "Name": "WaveSpeed", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Secondary wave speed" },
+    { "Name": "WaveSpread", "DefaultValue": 0.2, "MinValue": 0.0, "MaxValue": 5.0, "Tooltip": "Wave phase across instances" },
+    { "Name": "VerticalSpeed", "DefaultValue": 1.5, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Vertical turbulence speed" },
+    { "Name": "RadialFrequency", "DefaultValue": 0.04, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Radial turbulence frequency" },
+    { "Name": "VerticalAmplitude", "DefaultValue": 10.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Vertical turbulence amplitude" }
+  ]
+}

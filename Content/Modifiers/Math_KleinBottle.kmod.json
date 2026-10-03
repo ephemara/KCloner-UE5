@@ -1,0 +1,20 @@
+{
+  "AssetName": "Math_KleinBottle",
+  "DisplayName": "Klein Bottle Immersion",
+  "Category": "Math/Topology",
+  "Description": "A moving parametric immersion of a Klein bottle, with its self-intersection and non-orientable twist revealed as a living clone surface.",
+  "KScript": "var ku := t*v0+u*v1+x*v2*0.01; var kv := t*v3+u*v4+y*v5*0.01; var ring := v6+cos(ku*0.5)*sin(kv)-sin(ku*0.5)*sin(2.0*kv); var kx := ring*cos(ku); var ky := ring*sin(ku); var kz := sin(ku*0.5)*sin(kv)+cos(ku*0.5)*sin(2.0*kv); x += kx*v7; y += ky*v7; z += kz*v7; rz += sin(ku)*v8;",
+  "Step": 0.1,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "UTimeSpeed", "DefaultValue": 0.45, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Speed around the bottle loop" },
+    { "Name": "UPhaseSpread", "DefaultValue": 6.28, "MinValue": 0.0, "MaxValue": 25.0, "Tooltip": "Loop phase across instances" },
+    { "Name": "USpatialPhase", "DefaultValue": 0.5, "MinValue": -5.0, "MaxValue": 5.0, "Tooltip": "Spatial U phase" },
+    { "Name": "VTimeSpeed", "DefaultValue": 0.8, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Speed around the bottle tube" },
+    { "Name": "VPhaseSpread", "DefaultValue": 12.56, "MinValue": 0.0, "MaxValue": 25.0, "Tooltip": "Tube phase across instances" },
+    { "Name": "VSpatialPhase", "DefaultValue": 0.65, "MinValue": -5.0, "MaxValue": 5.0, "Tooltip": "Spatial V phase" },
+    { "Name": "BottleRadius", "DefaultValue": 1.8, "MinValue": 0.1, "MaxValue": 4.0, "Tooltip": "Parametric bottle radius" },
+    { "Name": "Amplitude", "DefaultValue": 48.0, "MinValue": 0.0, "MaxValue": 300.0, "Tooltip": "World-space immersion amplitude" },
+    { "Name": "TwistResponse", "DefaultValue": 12.0, "MinValue": 0.0, "MaxValue": 90.0, "Tooltip": "Non-orientable twist response" }
+  ]
+}

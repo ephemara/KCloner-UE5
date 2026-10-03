@@ -1,0 +1,18 @@
+{
+  "AssetName": "Science_TuringReactionDiffusion",
+  "DisplayName": "Turing Reaction Diffusion",
+  "Category": "Science/Pattern Formation",
+  "Description": "A procedural activator-inhibitor field inspired by Turing morphogenesis and reaction-diffusion patterns.",
+  "KScript": "var radius := sqrt(x*x + y*y); var activator := sin(radius*v0 - t*v1 + u*v2); var inhibitor := cos(radius*v3 + t*v4 + u*v5); var pattern := activator - inhibitor*v6; z += pattern*v7; var scale_response := 1.0 + abs(pattern)*v8; sx := sx*scale_response; sy := sy*scale_response; sz := sz*scale_response;",
+  "Variables": [
+    { "Name": "ActivatorFrequency", "DefaultValue": 0.06, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Activator spatial frequency" },
+    { "Name": "ActivatorSpeed", "DefaultValue": 1.2, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Activator temporal speed" },
+    { "Name": "ActivatorPhase", "DefaultValue": 0.8, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Activator instance phase" },
+    { "Name": "InhibitorFrequency", "DefaultValue": 0.11, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Inhibitor spatial frequency" },
+    { "Name": "InhibitorSpeed", "DefaultValue": 0.7, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Inhibitor temporal speed" },
+    { "Name": "InhibitorPhase", "DefaultValue": 1.4, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Inhibitor instance phase" },
+    { "Name": "Inhibition", "DefaultValue": 0.65, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Inhibitor strength" },
+    { "Name": "Height", "DefaultValue": 18.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Pattern displacement" },
+    { "Name": "ScaleResponse", "DefaultValue": 0.25, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Pattern scale response" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "AssetName": "Math_TorusKnot",
+  "DisplayName": "Torus Knot Flow",
+  "Category": "Math/Topology",
+  "Description": "A parametric (p,q) torus knot that continuously rethreads itself through a tubular manifold, ideal for impossible jewelry, cosmic filaments, and clone ribbons.",
+  "KScript": "var theta := t*v2+u*v3+(x+y)*v4*0.005; var ring := v0+v1*cos(v5*theta); var tx := ring*cos(v6*theta); var ty := ring*sin(v6*theta); var tz := v1*sin(v5*theta); x += tx*v7; y += ty*v7; z += tz*v7; rx += sin(theta)*v8; ry += cos(theta)*v8;",
+  "Step": 0.1,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "MajorRadius", "DefaultValue": 2.4, "MinValue": 0.1, "MaxValue": 6.0, "Tooltip": "Torus major radius" },
+    { "Name": "TubeRadius", "DefaultValue": 0.9, "MinValue": 0.01, "MaxValue": 3.0, "Tooltip": "Torus tube radius" },
+    { "Name": "Speed", "DefaultValue": 0.45, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Knot traversal speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 6.28, "MinValue": 0.0, "MaxValue": 25.0, "Tooltip": "Phase spread along the knot" },
+    { "Name": "SpatialPhase", "DefaultValue": 0.8, "MinValue": -5.0, "MaxValue": 5.0, "Tooltip": "Spatial phase coupling" },
+    { "Name": "P", "DefaultValue": 2.0, "MinValue": 1.0, "MaxValue": 12.0, "Tooltip": "Longitudinal winding count" },
+    { "Name": "Q", "DefaultValue": 3.0, "MinValue": 1.0, "MaxValue": 12.0, "Tooltip": "Meridional winding count" },
+    { "Name": "Amplitude", "DefaultValue": 42.0, "MinValue": 0.0, "MaxValue": 300.0, "Tooltip": "World-space knot amplitude" },
+    { "Name": "RotationResponse", "DefaultValue": 9.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Tangent rotation response" }
+  ]
+}

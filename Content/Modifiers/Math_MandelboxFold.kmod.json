@@ -1,0 +1,21 @@
+{
+  "AssetName": "Math_MandelboxFold",
+  "DisplayName": "Mandelbox Fold",
+  "Category": "Math/Fractals",
+  "Description": "A bounded, hand-unrolled Mandelbox-inspired sphere/box fold that makes a living fractal cage from ordinary clone positions without recursive geometry.",
+  "KScript": "var phase := t*v7+u*v8; var fx := x*v0+sin(phase)*v1; var fy := y*v0+cos(phase)*v1; var fz := z*v0; var radius := sqrt(fx*fx+fy*fy+fz*fz)+0.001; var fold := clamp(v2/(radius*radius),v3,v4); fx := abs(fx*fold)-v5; fy := abs(fy*fold)-v5; fz := abs(fz*fold)-v5; radius := sqrt(fx*fx+fy*fy+fz*fz)+0.001; fold := clamp(v2/(radius*radius),v3,v4); fx := abs(fx*fold)-v5; fy := abs(fy*fold)-v5; fz := abs(fz*fold)-v5; radius := sqrt(fx*fx+fy*fy+fz*fz)+0.001; fold := clamp(v2/(radius*radius),v3,v4); fx := abs(fx*fold)-v5; fy := abs(fy*fold)-v5; fz := abs(fz*fold)-v5; var c := cos(phase); var s := sin(phase); var tx := fx*c-fy*s; var ty := fx*s+fy*c; x += tx*v6; y += ty*v6; z += fz*v6+sin(phase)*v9; rx += (fx+fy)*v8;",
+  "Step": 0.05,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "InputScale", "DefaultValue": 0.012, "MinValue": 0.001, "MaxValue": 0.1, "Tooltip": "Maps world coordinates into the fold" },
+    { "Name": "SeedRadius", "DefaultValue": 0.45, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Animated seed offset" },
+    { "Name": "SphereFoldStrength", "DefaultValue": 1.2, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Inversion strength" },
+    { "Name": "SphereFoldMin", "DefaultValue": 0.25, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Lower sphere-fold clamp" },
+    { "Name": "SphereFoldMax", "DefaultValue": 1.4, "MinValue": 0.01, "MaxValue": 5.0, "Tooltip": "Upper sphere-fold clamp" },
+    { "Name": "BoxFold", "DefaultValue": 0.55, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Box-fold offset" },
+    { "Name": "Amplitude", "DefaultValue": 86.0, "MinValue": 0.0, "MaxValue": 500.0, "Tooltip": "World-space fractal amplitude" },
+    { "Name": "TimeSpeed", "DefaultValue": 0.6, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Fractal rotation speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Fractal phase spread and twist" },
+    { "Name": "VerticalPulse", "DefaultValue": 12.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Fractal vertical pulse" }
+  ]
+}

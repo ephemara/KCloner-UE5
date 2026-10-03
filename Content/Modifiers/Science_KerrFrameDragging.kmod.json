@@ -1,0 +1,15 @@
+{
+  "AssetName": "Science_KerrFrameDragging",
+  "DisplayName": "Kerr Frame Dragging",
+  "Category": "Science/Relativity",
+  "Description": "A visual approximation of Kerr black-hole frame dragging, photon-ring rotation, and relativistic vertical warp.",
+  "KScript": "var spin := clamp(v0, -0.99, 0.99); var radius := sqrt(x*x + y*y + 0.01); var horizon := max(v1, 1.0); var drag := (2.0 * spin * horizon) / (radius*radius*radius + 0.01); var angle := t * v2 * drag + u * v3; var c := cos(angle); var s := sin(angle); var ox := x; var oy := y; x := ox*c - oy*s; y := ox*s + oy*c; z += sin(t*v2 + radius*v4) * v5 / (radius + 1.0); rz += angle * rad;",
+  "Variables": [
+    { "Name": "Spin", "DefaultValue": 0.85, "MinValue": -0.99, "MaxValue": 0.99, "Tooltip": "Dimensionless black-hole spin parameter" },
+    { "Name": "HorizonScale", "DefaultValue": 80.0, "MinValue": 1.0, "MaxValue": 500.0, "Tooltip": "Visualized gravitational radius in Unreal units" },
+    { "Name": "AngularSpeed", "DefaultValue": 3.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Global frame-dragging speed" },
+    { "Name": "RingPhase", "DefaultValue": 6.28, "MinValue": 0.0, "MaxValue": 25.0, "Tooltip": "Phase spread around the photon ring" },
+    { "Name": "WarpFrequency", "DefaultValue": 0.08, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Vertical warp frequency" },
+    { "Name": "WarpHeight", "DefaultValue": 8.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Vertical accretion-disc warp" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "AssetName": "Math_CliffordAttractor",
+  "DisplayName": "Clifford Strange Attractor",
+  "Category": "Math/Chaos",
+  "Description": "A five-pass Clifford map turns every clone into a point on a continuously morphing strange attractor, with a fractal silhouette that never exactly repeats.",
+  "KScript": "var phase := t*v4+u*v5; var ax := x*0.01+sin(phase)*0.1; var ay := y*0.01+cos(phase)*0.1; var nx := sin(v0*ay)+v2*cos(v0*ax); var ny := sin(v1*ax)+v3*cos(v1*ay); ax := nx; ay := ny; nx := sin(v0*ay)+v2*cos(v0*ax); ny := sin(v1*ax)+v3*cos(v1*ay); ax := nx; ay := ny; nx := sin(v0*ay)+v2*cos(v0*ax); ny := sin(v1*ax)+v3*cos(v1*ay); ax := nx; ay := ny; nx := sin(v0*ay)+v2*cos(v0*ax); ny := sin(v1*ax)+v3*cos(v1*ay); ax := nx; ay := ny; nx := sin(v0*ay)+v2*cos(v0*ax); ny := sin(v1*ax)+v3*cos(v1*ay); ax := nx; ay := ny; x += ax*v6; y += ay*v6; z += sin(ax*ay*v8+phase)*v7; rz += (ax-ay)*v9;",
+  "Step": 0.04,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "A", "DefaultValue": 1.4, "MinValue": -3.0, "MaxValue": 3.0, "Tooltip": "Clifford map coefficient A" },
+    { "Name": "B", "DefaultValue": -2.3, "MinValue": -3.0, "MaxValue": 3.0, "Tooltip": "Clifford map coefficient B" },
+    { "Name": "C", "DefaultValue": 1.8, "MinValue": -3.0, "MaxValue": 3.0, "Tooltip": "Clifford map coefficient C" },
+    { "Name": "D", "DefaultValue": -1.9, "MinValue": -3.0, "MaxValue": 3.0, "Tooltip": "Clifford map coefficient D" },
+    { "Name": "Speed", "DefaultValue": 0.75, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Attractor morph speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Initial attractor phase spread" },
+    { "Name": "Amplitude", "DefaultValue": 72.0, "MinValue": 0.0, "MaxValue": 400.0, "Tooltip": "World-space attractor amplitude" },
+    { "Name": "VerticalAmplitude", "DefaultValue": 20.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Third-axis attractor displacement" },
+    { "Name": "VerticalFrequency", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Attractor vertical frequency" },
+    { "Name": "RotationResponse", "DefaultValue": 6.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Attractor rotation response" }
+  ]
+}

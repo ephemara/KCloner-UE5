@@ -1,0 +1,16 @@
+{
+  "AssetName": "Science_QuantumWavefunction",
+  "DisplayName": "Quantum Wavefunction",
+  "Category": "Science/Quantum",
+  "Description": "A visual radial probability-wave approximation using a Gaussian envelope and oscillating phase field.",
+  "KScript": "var radius := sqrt(x*x + y*y + z*z); var sigma := max(v0, 0.01); var envelope := exp(-(radius*radius)/(2.0*sigma*sigma)); var phase := v1*radius - t*v2 + u*v3; var psi := envelope*cos(phase); z += psi*v4; sx := sx*(1.0 + psi*v5); sy := sy*(1.0 + psi*v5); sz := sz*(1.0 + psi*v5); ry += psi*v6*rad;",
+  "Variables": [
+    { "Name": "Sigma", "DefaultValue": 160.0, "MinValue": 1.0, "MaxValue": 1000.0, "Tooltip": "Gaussian wave-packet width" },
+    { "Name": "RadialWaveNumber", "DefaultValue": 0.08, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Radial phase frequency" },
+    { "Name": "Frequency", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Temporal phase frequency" },
+    { "Name": "PhaseSpread", "DefaultValue": 3.14, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Phase spread across instances" },
+    { "Name": "Displacement", "DefaultValue": 30.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Wave displacement" },
+    { "Name": "ScaleResponse", "DefaultValue": 0.35, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Probability amplitude scale response" },
+    { "Name": "RotationResponse", "DefaultValue": 8.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Rotation response" }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "Effects": [
+    {
+      "AssetName": "Experimental_Spiral_Helix",
+      "DisplayName": "Experimental Spiral Helix",
+      "Category": "Experimental/Distribution",
+      "Description": "Mograph helix burst with a procedural bounce layer.",
+      "DefaultLayer": "Experimental",
+      "Duration": 1.2,
+      "BlendIn": 0.05,
+      "BlendOut": 0.35,
+      "SpawnDistributedCloner": true,
+      "Modifiers": [
+        { "Type": "Bounce", "Speed": 2.0, "Height": 18.0, "Squash": 0.2 },
+        { "Type": "Lissajous", "Speed": 0.8, "Size": 8.0, "FrequencyA": 3, "FrequencyB": 5 }
+      ],
+      "DistributionLayers": [
+        {
+          "Mode": "Spiral",
+          "SpiralCount": 48,
+          "SpiralInnerRadius": 10.0,
+          "SpiralOuterRadius": 180.0,
+          "SpiralTurns": 2.5,
+          "SpiralHeight": 240.0,
+          "SpiralPhase": 0.0,
+          "bSpiralAlign": true
+        }
+      ]
+    },
+    {
+      "AssetName": "Experimental_FibonacciImpact",
+      "DisplayName": "Experimental Fibonacci Impact",
+      "Category": "Experimental/Distribution",
+      "Description": "Even spherical impact shell using a Fibonacci point set.",
+      "DefaultLayer": "Impact",
+      "Duration": 0.65,
+      "BlendIn": 0.01,
+      "BlendOut": 0.25,
+      "SpawnDistributedCloner": true,
+      "Modifiers": [
+        { "Type": "Bounce", "Speed": 4.0, "Height": 30.0, "Squash": 0.45 }
+      ],
+      "DistributionLayers": [
+        {
+          "Mode": "Sphere",
+          "SphereCount": 64,
+          "SphereRadius": 150.0,
+          "bSphereVolume": false,
+          "bSphereAlign": true
+        }
+      ]
+    },
+    {
+      "AssetName": "Experimental_PoissonDebris",
+      "DisplayName": "Experimental Poisson Debris",
+      "Category": "Experimental/Distribution",
+      "Description": "Blue-noise debris field with no visible point clumping.",
+      "DefaultLayer": "Debris",
+      "Duration": 0.9,
+      "BlendIn": 0.02,
+      "BlendOut": 0.4,
+      "SpawnDistributedCloner": true,
+      "Modifiers": [
+        { "Type": "Tumble", "RotationSpeed": [45.0, 90.0, 30.0], "RandomOffset": 1.0 }
+      ],
+      "DistributionLayers": [
+        {
+          "Mode": "Poisson",
+          "PoissonCount": 40,
+          "PoissonBounds": [400.0, 400.0, 180.0],
+          "PoissonMinimumDistance": 55.0,
+          "PoissonAttemptsPerPoint": 20,
+          "PoissonSeed": 1337
+        }
+      ]
+    }
+  ]
+}

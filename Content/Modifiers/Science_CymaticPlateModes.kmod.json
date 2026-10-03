@@ -1,0 +1,22 @@
+{
+  "AssetName": "Science_CymaticPlateModes",
+  "DisplayName": "Cymatic Plate Modes",
+  "Category": "Science/Acoustics",
+  "Description": "Chladni-style standing-wave modes combine into evolving acoustic sand patterns, with nodal lines and resonant surface motion.",
+  "KScript": "var half := max(v0,1.0); var qx := pi*x/half; var qy := pi*y/half; var mode_a := sin(qx*v1)*sin(qy*v2); var mode_b := sin(qx*v3)*sin(qy*v4); var field := mode_a-mode_b*v5; var pulse := sin(t*v6+u*v7); var height := field*pulse*v8; z += height; sx := sx*(1.0+abs(field)*v9); sy := sy*(1.0+abs(field)*v9); sz := sz*(1.0+abs(field)*v9); rx += cos(qx*v1)*sin(qy*v2)*v10; ry += sin(qx*v1)*cos(qy*v2)*v10;",
+  "Step": 0.1,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "PlateHalfSize", "DefaultValue": 260.0, "MinValue": 1.0, "MaxValue": 2000.0, "Tooltip": "Half-size of the virtual resonant plate" },
+    { "Name": "ModeM", "DefaultValue": 3.0, "MinValue": 1.0, "MaxValue": 20.0, "Tooltip": "First standing-wave mode" },
+    { "Name": "ModeN", "DefaultValue": 5.0, "MinValue": 1.0, "MaxValue": 20.0, "Tooltip": "First standing-wave mode" },
+    { "Name": "ModeP", "DefaultValue": 7.0, "MinValue": 1.0, "MaxValue": 20.0, "Tooltip": "Second standing-wave mode" },
+    { "Name": "ModeQ", "DefaultValue": 4.0, "MinValue": 1.0, "MaxValue": 20.0, "Tooltip": "Second standing-wave mode" },
+    { "Name": "ModeMix", "DefaultValue": 0.65, "MinValue": -2.0, "MaxValue": 2.0, "Tooltip": "Relative strength of the second mode" },
+    { "Name": "ResonanceSpeed", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Excitation speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 2.2, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Per-instance phase offset" },
+    { "Name": "Height", "DefaultValue": 24.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Surface displacement" },
+    { "Name": "ScaleResponse", "DefaultValue": 0.18, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Nodal pattern scale response" },
+    { "Name": "TiltResponse", "DefaultValue": 6.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Surface tilt response" }
+  ]
+}

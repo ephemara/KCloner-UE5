@@ -1,0 +1,19 @@
+{
+  "AssetName": "Science_GravitationalWaves",
+  "DisplayName": "Gravitational Wave Strain",
+  "Category": "Science/Relativity",
+  "Description": "A visual quadrupole approximation of binary gravitational waves: plus and cross polarization shear the clone field while a fading wavefront ripples through space.",
+  "KScript": "var radius := sqrt(x*x + y*y + z*z) + 1.0; var phase := v0*radius - t*v1 + u*v2; var envelope := exp(-radius/max(v3,1.0)); var plus := sin(phase)*envelope*v4; var cross := cos(phase+v5)*envelope*v4; var ox := x; var oy := y; x := ox + ox*plus + oy*cross; y := oy + oy*plus - ox*cross; z += sin(phase*0.5)*envelope*v6; rz += (plus-cross)*v7;",
+  "Step": 0.08,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "WaveNumber", "DefaultValue": 0.04, "MinValue": 0.001, "MaxValue": 0.2, "Tooltip": "Spatial frequency of the passing wave" },
+    { "Name": "OrbitalFrequency", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Binary source frequency" },
+    { "Name": "PhaseSpread", "DefaultValue": 1.7, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Per-instance phase offset" },
+    { "Name": "FalloffDistance", "DefaultValue": 650.0, "MinValue": 1.0, "MaxValue": 5000.0, "Tooltip": "Distance over which strain fades" },
+    { "Name": "Strain", "DefaultValue": 0.3, "MinValue": 0.0, "MaxValue": 1.5, "Tooltip": "Visualized plus/cross strain" },
+    { "Name": "Polarization", "DefaultValue": 1.57, "MinValue": -6.28, "MaxValue": 6.28, "Tooltip": "Cross-polarization phase" },
+    { "Name": "VerticalRipple", "DefaultValue": 18.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Out-of-plane wave displacement" },
+    { "Name": "RotationResponse", "DefaultValue": 8.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Rotation response to strain" }
+  ]
+}

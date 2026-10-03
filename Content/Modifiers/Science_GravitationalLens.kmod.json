@@ -1,0 +1,15 @@
+{
+  "AssetName": "Science_GravitationalLens",
+  "DisplayName": "Gravitational Lens",
+  "Category": "Science/Relativity",
+  "Description": "A weak-field gravitational-lensing approximation with radial deflection, twist, and Einstein-ring-style distortion.",
+  "KScript": "var r2 := x*x + y*y + z*z + v1; var deflection := v0/(r2 + 0.001); var twist := t*v2*deflection + u*v3; var c := cos(twist); var s := sin(twist); var ox := x; var oy := y; var lx := ox*c - oy*s; var ly := ox*s + oy*c; x := ox + (lx-ox)*deflection; y := oy + (ly-oy)*deflection; z += deflection*v4; ry += deflection*v5*rad;",
+  "Variables": [
+    { "Name": "LensStrength", "DefaultValue": 9000.0, "MinValue": 0.0, "MaxValue": 50000.0, "Tooltip": "Visualized lensing strength" },
+    { "Name": "Softening", "DefaultValue": 4000.0, "MinValue": 1.0, "MaxValue": 50000.0, "Tooltip": "Softening term prevents a singularity" },
+    { "Name": "TimeTwist", "DefaultValue": 4.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Animated lens twist" },
+    { "Name": "PhaseSpread", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Instance phase spread" },
+    { "Name": "VerticalDeflection", "DefaultValue": 12.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Vertical lensing displacement" },
+    { "Name": "RotationResponse", "DefaultValue": 6.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Rotation response to lensing" }
+  ]
+}

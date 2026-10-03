@@ -1,0 +1,18 @@
+{
+  "AssetName": "Science_WaveInterference",
+  "DisplayName": "Fourier Wave Interference",
+  "Category": "Science/Waves",
+  "Description": "Superposition of directional Fourier waves with phase offsets, producing animated interference bands and standing-wave motion.",
+  "KScript": "var q1 := v0*(x*cos(v2) + y*sin(v2)) - t*v1; var q2 := v0*(x*cos(v3) + y*sin(v3)) - t*v1*1.13 + u*v4; var wave := sin(q1)*v5 + sin(q2)*v6; z += wave; rx += cos(q1)*v7; ry += sin(q2)*v8;",
+  "Variables": [
+    { "Name": "WaveNumber", "DefaultValue": 0.04, "MinValue": 0.001, "MaxValue": 0.5, "Tooltip": "Spatial frequency" },
+    { "Name": "AngularSpeed", "DefaultValue": 3.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Temporal frequency" },
+    { "Name": "DirectionA", "DefaultValue": 0.0, "MinValue": -3.14, "MaxValue": 3.14, "Tooltip": "First wave direction in radians" },
+    { "Name": "DirectionB", "DefaultValue": 1.57, "MinValue": -3.14, "MaxValue": 3.14, "Tooltip": "Second wave direction in radians" },
+    { "Name": "PhaseSpread", "DefaultValue": 0.7, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Instance phase offset" },
+    { "Name": "AmplitudeA", "DefaultValue": 25.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "First wave amplitude" },
+    { "Name": "AmplitudeB", "DefaultValue": 18.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Second wave amplitude" },
+    { "Name": "PitchResponse", "DefaultValue": 8.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Rotation response to wave A" },
+    { "Name": "YawResponse", "DefaultValue": 8.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Rotation response to wave B" }
+  ]
+}

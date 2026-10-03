@@ -1,0 +1,22 @@
+{
+  "AssetName": "Science_SupernovaShockwave",
+  "DisplayName": "Supernova Shockwave",
+  "Category": "Science/Astrophysics",
+  "Description": "An expanding blast-front approximation with a bright spherical shell, radial ejecta, turbulence, and late-time ring collapse.",
+  "KScript": "var radius := sqrt(x*x+y*y+z*z)+1.0; var front := t*v0; var shell := exp(-((radius-front)*(radius-front))/max(v1,1.0)); var phase := radius*v2-t*v3+u*v4; var ripple := sin(phase); var turbulence := sin(x*v5+t*v6)+cos(y*v5-t*v6)+sin(z*v5+u*v4); var push := shell*(v7+ripple*v8); x += (x/radius)*push; y += (y/radius)*push; z += (z/radius)*push+shell*turbulence*v9; sx := sx*(1.0+shell*v10); sy := sy*(1.0+shell*v10); sz := sz*(1.0+shell*v10);",
+  "Step": 0.07,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "ExpansionSpeed", "DefaultValue": 120.0, "MinValue": 0.0, "MaxValue": 1000.0, "Tooltip": "Shock-front expansion speed" },
+    { "Name": "ShellWidth", "DefaultValue": 900.0, "MinValue": 1.0, "MaxValue": 10000.0, "Tooltip": "Squared shell falloff" },
+    { "Name": "WaveNumber", "DefaultValue": 0.08, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Shock shell ripple frequency" },
+    { "Name": "WaveSpeed", "DefaultValue": 3.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Ripple time speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 2.8, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Ejecta phase spread" },
+    { "Name": "TurbulenceFrequency", "DefaultValue": 0.035, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Ejecta turbulence frequency" },
+    { "Name": "TurbulenceSpeed", "DefaultValue": 1.7, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Turbulence time speed" },
+    { "Name": "RadialImpulse", "DefaultValue": 32.0, "MinValue": 0.0, "MaxValue": 300.0, "Tooltip": "Radial blast displacement" },
+    { "Name": "ShellRipple", "DefaultValue": 16.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Ripple contribution to the shell" },
+    { "Name": "TurbulenceAmplitude", "DefaultValue": 10.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Ejecta turbulence amplitude" },
+    { "Name": "ScaleFlash", "DefaultValue": 0.25, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Shock-shell scale flash" }
+  ]
+}

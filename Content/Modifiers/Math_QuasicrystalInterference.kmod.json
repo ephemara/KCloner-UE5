@@ -1,0 +1,18 @@
+{
+  "AssetName": "Math_QuasicrystalInterference",
+  "DisplayName": "Aperiodic Quasicrystal",
+  "Category": "Math/Pattern Formation",
+  "Description": "Five incommensurate wave directions interfere into decagonal quasicrystal bands: ordered, non-repeating, and hypnotically unstable under time evolution.",
+  "KScript": "var q := t*v0+u*v1; var d0 := v2*x+q; var d1 := v2*(x*cos(pi*0.2)+y*sin(pi*0.2))+q*1.13; var d2 := v2*(x*cos(pi*0.4)+y*sin(pi*0.4))+q*0.87; var d3 := v2*(x*cos(pi*0.6)+y*sin(pi*0.6))+q*1.29; var d4 := v2*(x*cos(pi*0.8)+y*sin(pi*0.8))+q*0.71; var field := sin(d0)+sin(d1)+sin(d2)+sin(d3)+sin(d4); var envelope := cos(t*v5+u*v1); z += field*v3*envelope; sx := sx*(1.0+abs(field)*v4); sy := sy*(1.0+abs(field)*v4); sz := sz*(1.0+abs(field)*v4); rx += cos(d0)*v6; ry += sin(d2)*v6;",
+  "Step": 0.09,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "TimeSpeed", "DefaultValue": 0.65, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Quasicrystal phase speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 2.6, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Phase spread between clones" },
+    { "Name": "WaveNumber", "DefaultValue": 0.055, "MinValue": 0.001, "MaxValue": 0.5, "Tooltip": "Aperiodic wave spatial frequency" },
+    { "Name": "Height", "DefaultValue": 14.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Quasicrystal displacement" },
+    { "Name": "ScaleResponse", "DefaultValue": 0.055, "MinValue": 0.0, "MaxValue": 0.5, "Tooltip": "Pattern scale response" },
+    { "Name": "EnvelopeSpeed", "DefaultValue": 1.1, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Global envelope pulse speed" },
+    { "Name": "TiltResponse", "DefaultValue": 5.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Quasicrystal tilt response" }
+  ]
+}

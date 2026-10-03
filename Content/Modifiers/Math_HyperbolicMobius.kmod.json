@@ -1,0 +1,20 @@
+{
+  "AssetName": "Math_HyperbolicMobius",
+  "DisplayName": "Hyperbolic Möbius Portal",
+  "Category": "Math/Complex Dynamics",
+  "Description": "Two softened complex Möbius transforms fold clone coordinates through a rotating hyperbolic portal, exposing poles as controlled infinities instead of editor-killing singularities.",
+  "KScript": "var phase := t*v1+u*v2; var zx := x*v0; var zy := y*v0; var a := cos(phase); var b := sin(phase); var nr := zx+a; var ni := zy+b; var dr := 1.0+a*zx-b*zy; var di := a*zy+b*zx; var d2 := max(dr*dr+di*di+v3,0.001); zx := (nr*dr+ni*di)/d2; zy := (ni*dr-nr*di)/d2; var phase2 := phase*1.618+t*v1*0.37; a := cos(phase2); b := sin(phase2); nr := zx+a; ni := zy+b; dr := 1.0+a*zx-b*zy; di := a*zy+b*zx; d2 := max(dr*dr+di*di+v3,0.001); zx := (nr*dr+ni*di)/d2; zy := (ni*dr-nr*di)/d2; var warp := exp(-(zx*zx+zy*zy)*v6); x += (zx*v4-x)*v5; y += (zy*v4-y)*v5; z += sin(phase2)*warp*v7; rz += (zx-zy)*v8;",
+  "Step": 0.06,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "CoordinateScale", "DefaultValue": 0.012, "MinValue": 0.001, "MaxValue": 0.1, "Tooltip": "Maps world space into the complex plane" },
+    { "Name": "TimeSpeed", "DefaultValue": 0.55, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Portal rotation speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 2.4, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Complex phase spread" },
+    { "Name": "PoleSoftening", "DefaultValue": 0.08, "MinValue": 0.001, "MaxValue": 2.0, "Tooltip": "Prevents a transform pole from exploding" },
+    { "Name": "PortalScale", "DefaultValue": 170.0, "MinValue": 0.0, "MaxValue": 1000.0, "Tooltip": "World-space portal scale" },
+    { "Name": "PortalBlend", "DefaultValue": 0.5, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Blend toward the transformed coordinate" },
+    { "Name": "CenterFalloff", "DefaultValue": 0.0008, "MinValue": 0.0, "MaxValue": 0.1, "Tooltip": "Portal center glow falloff" },
+    { "Name": "VerticalWarp", "DefaultValue": 34.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Portal vertical displacement" },
+    { "Name": "RotationResponse", "DefaultValue": 5.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Complex phase rotation response" }
+  ]
+}

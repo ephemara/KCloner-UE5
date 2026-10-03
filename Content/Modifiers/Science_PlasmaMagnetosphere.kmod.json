@@ -1,0 +1,21 @@
+{
+  "AssetName": "Science_PlasmaMagnetosphere",
+  "DisplayName": "Plasma Magnetosphere",
+  "Category": "Science/Plasma Physics",
+  "Description": "A dipole-like magnetic field visualizer with gyro-orbits, radial plasma drift, and a pulsing magnetospheric tail.",
+  "KScript": "var radius := sqrt(x*x + y*y) + 1.0; var core := max(v0,1.0); var field := v1/(radius*radius + core*core); var angle := t*v2*field + u*v3; var c := cos(angle); var s := sin(angle); var ox := x; var oy := y; var radial := sin(t*v4 + radius*v5 + u*v6)*v7*field; x := ox*c - oy*s + (ox/radius)*radial; y := ox*s + oy*c + (oy/radius)*radial; z += sin(t*v4 + radius*v5)*v8*field; rz += angle*v9*rad;",
+  "Step": 0.12,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "CoreRadius", "DefaultValue": 160.0, "MinValue": 1.0, "MaxValue": 1000.0, "Tooltip": "Softened dipole core radius" },
+    { "Name": "FieldStrength", "DefaultValue": 35000.0, "MinValue": 0.0, "MaxValue": 200000.0, "Tooltip": "Visualized magnetic field strength" },
+    { "Name": "GyroSpeed", "DefaultValue": 2.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Charged-particle gyro speed" },
+    { "Name": "GyroPhase", "DefaultValue": 6.28, "MinValue": 0.0, "MaxValue": 25.0, "Tooltip": "Phase spread around field lines" },
+    { "Name": "PulseSpeed", "DefaultValue": 1.4, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Magnetosphere pulse speed" },
+    { "Name": "RadialFrequency", "DefaultValue": 0.035, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Radial plasma wave frequency" },
+    { "Name": "ParticlePhase", "DefaultValue": 2.4, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Per-instance plasma phase" },
+    { "Name": "RadialDrift", "DefaultValue": 26.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Outward and inward drift" },
+    { "Name": "VerticalDrift", "DefaultValue": 18.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Field-line vertical motion" },
+    { "Name": "RotationResponse", "DefaultValue": 0.18, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Particle rotation response" }
+  ]
+}

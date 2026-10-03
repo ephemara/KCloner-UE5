@@ -1,0 +1,20 @@
+{
+  "AssetName": "Math_QuaternionTesseract",
+  "DisplayName": "4D Tesseract Projection",
+  "Category": "Math/Higher Dimensions",
+  "Description": "A four-dimensional hypercube projection: clones rotate through the XW and YZ planes, then perspective-project back into Unreal space like a breathing impossible object.",
+  "KScript": "var ax := x*0.01; var ay := y*0.01; var az := z*0.01; var w4 := sin(t*v0+u*v2)*v1+cos(y*0.01)*0.2; var angle := t*v6+u*v2; var c := cos(angle); var s := sin(angle); var x4 := ax*c-w4*s; var wrot := ax*s+w4*c; var angle2 := angle*1.37; var c2 := cos(angle2); var s2 := sin(angle2); var y4 := ay*c2-az*s2; var z4 := ay*s2+az*c2; var perspective := v3/max(v3-wrot,0.25); var tx := x4*perspective*v4; var ty := y4*perspective*v4; var tz := z4*perspective*v4; x += (tx-x)*v5; y += (ty-y)*v5; z += (tz-z)*v5; sx := sx*(1.0+abs(wrot)*v8); sy := sy*(1.0+abs(wrot)*v8); sz := sz*(1.0+abs(wrot)*v8); rz += wrot*v7;",
+  "Step": 0.08,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "WRotationSpeed", "DefaultValue": 1.2, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Rotation through the fourth dimension" },
+    { "Name": "WAmplitude", "DefaultValue": 1.0, "MinValue": 0.0, "MaxValue": 3.0, "Tooltip": "Fourth-dimensional coordinate amplitude" },
+    { "Name": "PhaseSpread", "DefaultValue": 3.14, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Phase spread through the hypercube" },
+    { "Name": "CameraDistance", "DefaultValue": 4.0, "MinValue": 1.0, "MaxValue": 20.0, "Tooltip": "Four-dimensional perspective distance" },
+    { "Name": "ProjectionScale", "DefaultValue": 100.0, "MinValue": 0.0, "MaxValue": 500.0, "Tooltip": "Projected world-space scale" },
+    { "Name": "ProjectionBlend", "DefaultValue": 0.62, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Blend toward the projected position" },
+    { "Name": "YZRotationSpeed", "DefaultValue": 0.83, "MinValue": -10.0, "MaxValue": 10.0, "Tooltip": "Secondary four-dimensional plane speed" },
+    { "Name": "RotationResponse", "DefaultValue": 6.0, "MinValue": 0.0, "MaxValue": 45.0, "Tooltip": "Projected rotation response" },
+    { "Name": "ScaleResponse", "DefaultValue": 0.12, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Fourth-dimensional scale breathing" }
+  ]
+}

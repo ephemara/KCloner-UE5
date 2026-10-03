@@ -1,0 +1,46 @@
+{
+  "AssetName": "Enemy_Attack_Burst",
+  "DisplayName": "Enemy Attack Burst",
+  "Category": "Gameplay/Enemy",
+  "Description": "A montage-triggered modifier burst for enemy attacks.",
+  "EventTag": "Attack.Impact",
+  "DefaultLayer": "Combat",
+  "Priority": 20,
+  "Weight": 1.0,
+  "Duration": 0.35,
+  "BlendIn": 0.02,
+  "BlendOut": 0.16,
+  "TimeScale": 1.0,
+  "ReplaceSameLayer": false,
+  "SpawnDistributedCloner": true,
+  "UseOwnerMesh": true,
+  "SkeletalMode": "PhysicsIK",
+  "Modifiers": [
+    {
+      "Type": "Bounce",
+      "Speed": 3.2,
+      "Height": 22.0,
+      "Squash": 0.35,
+      "Step": 0.18,
+      "Direction": [0.0, 0.0, 1.0]
+    },
+    {
+      "Type": "Lissajous",
+      "Speed": 1.6,
+      "Size": 12.0,
+      "FrequencyA": 3,
+      "FrequencyB": 2,
+      "Phase": 0.0,
+      "Step": 0.08
+    }
+  ],
+  "DistributionLayers": [
+    {
+      "Enabled": true,
+      "Mode": "Radial",
+      "RadialCount": 8,
+      "RadialRadius": 70.0,
+      "RadialAlign": true
+    }
+  ]
+}

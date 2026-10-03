@@ -1,0 +1,17 @@
+{
+  "AssetName": "Science_MandelbrotOrbit",
+  "DisplayName": "Mandelbrot Orbit Trap",
+  "Category": "Science/Complex Analysis",
+  "Description": "A hand-unrolled complex quadratic iteration that turns Mandelbrot and Julia-set structure into animated spatial displacement.",
+  "KScript": "var cx := x*v0 + cos(t*v1 + u*v2)*v3; var cy := y*v0 + sin(t*v1 + u*v2)*v3; var zx := x*v4; var zy := y*v4; var nx := zx*zx - zy*zy + cx; var ny := 2.0*zx*zy + cy; zx := nx; zy := ny; nx := zx*zx - zy*zy + cx; ny := 2.0*zx*zy + cy; zx := nx; zy := ny; nx := zx*zx - zy*zy + cx; ny := 2.0*zx*zy + cy; zx := nx; zy := ny; nx := zx*zx - zy*zy + cx; ny := 2.0*zx*zy + cy; zx := nx; zy := ny; var escape := sqrt(zx*zx + zy*zy); var shade := clamp(escape/max(v5, 0.001), 0.0, 1.0); z += shade*v6; sx := sx*(1.0 + (1.0-shade)*v7); sy := sy*(1.0 + (1.0-shade)*v7); sz := sz*(1.0 + (1.0-shade)*v7);",
+  "Variables": [
+    { "Name": "CoordinateScale", "DefaultValue": 0.02, "MinValue": 0.001, "MaxValue": 0.2, "Tooltip": "Maps world position into the complex plane" },
+    { "Name": "TimeSpeed", "DefaultValue": 0.25, "MinValue": 0.0, "MaxValue": 5.0, "Tooltip": "Julia parameter animation speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 1.0, "MinValue": 0.0, "MaxValue": 10.0, "Tooltip": "Phase across instances" },
+    { "Name": "JuliaRadius", "DefaultValue": 0.25, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Animated Julia-set parameter radius" },
+    { "Name": "InitialScale", "DefaultValue": 0.02, "MinValue": 0.001, "MaxValue": 0.2, "Tooltip": "Initial orbit scale" },
+    { "Name": "EscapeRadius", "DefaultValue": 4.0, "MinValue": 0.1, "MaxValue": 20.0, "Tooltip": "Orbit escape radius" },
+    { "Name": "Height", "DefaultValue": 40.0, "MinValue": 0.0, "MaxValue": 200.0, "Tooltip": "Displacement from orbit escape" },
+    { "Name": "ScalePulse", "DefaultValue": 0.4, "MinValue": 0.0, "MaxValue": 2.0, "Tooltip": "Scale response to orbit shading" }
+  ]
+}

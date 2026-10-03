@@ -1,0 +1,23 @@
+{
+  "AssetName": "Science_DoublePendulum",
+  "DisplayName": "Chaotic Double Pendulum",
+  "Category": "Science/Chaos",
+  "Description": "A compact double-pendulum approximation that turns tiny spatial and phase differences into diverging, impossible-to-predict clone motion.",
+  "KScript": "var phase := t*v2 + u*v3; var a := v0 + sin(phase + sin(phase*1.71 + x*v4*0.01)*v5)*v6; var b := v1 + sin(phase*1.37 + cos(phase*0.83 + y*v7*0.01)*v8)*v9; var l1 := 80.0; var l2 := 60.0; var px := sin(a)*l1 + sin(b)*l2; var py := -cos(a)*l1 - cos(b)*l2; x += px*v10; y += py*v10; z += sin(a-b)*v11; rx += sin(a)*v11; ry += cos(b)*v11;",
+  "Step": 0.06,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    { "Name": "BaseAngleA", "DefaultValue": 0.7, "MinValue": -6.28, "MaxValue": 6.28, "Tooltip": "First pendulum base angle" },
+    { "Name": "BaseAngleB", "DefaultValue": 1.4, "MinValue": -6.28, "MaxValue": 6.28, "Tooltip": "Second pendulum base angle" },
+    { "Name": "Speed", "DefaultValue": 1.8, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Chaotic system time speed" },
+    { "Name": "PhaseSpread", "DefaultValue": 3.0, "MinValue": 0.0, "MaxValue": 20.0, "Tooltip": "Phase difference between clones" },
+    { "Name": "SpatialCouplingA", "DefaultValue": 0.7, "MinValue": -5.0, "MaxValue": 5.0, "Tooltip": "Position sensitivity of pendulum A" },
+    { "Name": "ChaosA", "DefaultValue": 0.8, "MinValue": 0.0, "MaxValue": 3.0, "Tooltip": "Nonlinear feedback on pendulum A" },
+    { "Name": "AngleAmplitudeA", "DefaultValue": 1.1, "MinValue": 0.0, "MaxValue": 3.14, "Tooltip": "Swing amplitude A" },
+    { "Name": "SpatialCouplingB", "DefaultValue": 0.55, "MinValue": -5.0, "MaxValue": 5.0, "Tooltip": "Position sensitivity of pendulum B" },
+    { "Name": "ChaosB", "DefaultValue": 0.9, "MinValue": 0.0, "MaxValue": 3.0, "Tooltip": "Nonlinear feedback on pendulum B" },
+    { "Name": "AngleAmplitudeB", "DefaultValue": 1.0, "MinValue": 0.0, "MaxValue": 3.14, "Tooltip": "Swing amplitude B" },
+    { "Name": "PositionInfluence", "DefaultValue": 0.55, "MinValue": 0.0, "MaxValue": 1.0, "Tooltip": "Blend of pendulum position into clones" },
+    { "Name": "VerticalPulse", "DefaultValue": 16.0, "MinValue": 0.0, "MaxValue": 100.0, "Tooltip": "Vertical and rotation response" }
+  ]
+}

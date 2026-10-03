@@ -1,0 +1,35 @@
+{
+  "AssetName": "Enemy_Bounce",
+  "DisplayName": "Enemy Bounce",
+  "Category": "Gameplay/Enemy",
+  "Description": "A lightweight procedural bounce for enemy variations.",
+  "PositionExpression": "",
+  "RotationExpression": "",
+  "ScaleExpression": "",
+  "KScript": "p.z := p.z + abs(sin(t * v0 + u * v1)) * (m * 0.2); r.y += deg(sin(t) * 2);",
+  "Step": 0.1,
+  "SpeedMultiplier": 1.0,
+  "Variables": [
+    {
+      "Name": "Speed",
+      "DefaultValue": 2.0,
+      "MinValue": 0.0,
+      "MaxValue": 10.0,
+      "Tooltip": "Bounce speed"
+    },
+    {
+      "Name": "Phase",
+      "DefaultValue": 0.25,
+      "MinValue": 0.0,
+      "MaxValue": 6.28,
+      "Tooltip": "Phase offset between instances"
+    },
+    {
+      "Name": "Height",
+      "DefaultValue": 20.0,
+      "MinValue": 0.0,
+      "MaxValue": 200.0,
+      "Tooltip": "Bounce height"
+    }
+  ]
+}
